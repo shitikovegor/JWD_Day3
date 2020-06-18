@@ -5,6 +5,7 @@ import com.shitikov.task3.entity.BallColor;
 import com.shitikov.task3.entity.Basket;
 import com.shitikov.task3.exception.ProjectException;
 import com.shitikov.task3.service.BasketService;
+import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -74,46 +75,46 @@ public class BasketServiceTest {
         }
     }
 
+    @BeforeGroups(groups = "color")
+    public void setUpGroup() {
+        basketService = new BasketService();
+        basket = new Basket(300, 1000, 6);
+        basket.add(new Ball(BallColor.RED, 25, 1.5));
+        basket.add(new Ball(BallColor.BLACK, 30, 2.5));
+        basket.add(new Ball(BallColor.BLUE, 12, 3));
+        basket.add(new Ball(BallColor.BLUE, 15, 5.5));
+    }
+
     @DataProvider(name = "dataColorException")
     public Object[][] createColorExc() {
         return new Object[][]{{null, BallColor.BLACK}, {basket, null}};
     }
 
-    @Test(dataProvider = "dataColorException", expectedExceptions = ProjectException.class)
+
+    @Test(groups = "color", dataProvider = "dataColorException", expectedExceptions = ProjectException.class)
     public void testNumberOfBallsByColorException(Basket basket, BallColor color) throws ProjectException {
         basketService.numberOfBallsByColor(basket, color);
     }
 
-    // FIXME: 18.06.2020 лучше разбираться с BeforeGroups или выносить в отдельный класс
+    @Test(groups = "color")
+    public void testNumberOfBallsByColorPositive() {
+        try {
+            int actual = basketService.numberOfBallsByColor(basket, BallColor.BLUE);
+            int expected = 2;
+            assertEquals(actual, expected, "Test failed as... ");
+        } catch (ProjectException e) {
+            fail("Exception has occurred.");
+        }
+    }
 
-//    @BeforeGroups(groups = "color")
-//    public void setBasket() {
-//        basket = new Basket(300, 1000, 6);
-//        basket.add(new Ball(BallColor.RED, 25, 1.5));
-//        basket.add(new Ball(BallColor.BLACK, 30, 2.5));
-//        basket.add(new Ball(BallColor.BLUE, 12, 3));
-//        basket.add(new Ball(BallColor.BLUE, 15, 5.5));
-//    }
-
-//    @Test(groups = "color")
-//    public void testNumberOfBallsByColorPositive() {
-//        try {
-//            int actual = basketService.numberOfBallsByColor(basket, BallColor.BLUE);
-//            int expected = 2;
-//            assertEquals(actual, expected, "Test failed as... ");
-//        } catch (ProjectException e) {
-//            fail("Exception has occurred.");
-//        }
-//    }
-//
-//    @Test(groups = {"color"})
-//    public void testNumberOfBallsByColorNegative() {
-//        try {
-//            int actual = basketService.numberOfBallsByColor(basket, BallColor.BLUE);
-//            int expected = 3;
-//            assertNotEquals(actual, expected, "Test failed as... ");
-//        } catch (ProjectException e) {
-//            fail("Exception has occurred.");
-//        }
-//    }
+    @Test(groups = {"color"})
+    public void testNumberOfBallsByColorNegative() {
+        try {
+            int actual = basketService.numberOfBallsByColor(basket, BallColor.BLUE);
+            int expected = 3;
+            assertNotEquals(actual, expected, "Test failed as... ");
+        } catch (ProjectException e) {
+            fail("Exception has occurred.");
+        }
+    }
 }

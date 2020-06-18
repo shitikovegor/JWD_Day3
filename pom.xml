@@ -9,7 +9,6 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>JWD_Day3</name>
-  <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
   <properties>
@@ -49,7 +48,9 @@
           <configuration>
             <!-- Suite testng xml file to consider for test execution -->
             <suiteXmlFiles>
-              <suiteXmlFile>testng.xml</suiteXmlFile>
+              <suiteXmlFile>src/resources/suites/basketCalculator.xml</suiteXmlFile>
+              <suiteXmlFile>src/resources/suites/generalSuite.xml</suiteXmlFile>
+              <suiteXmlFile>src/resources/suites/serviceColor.xml</suiteXmlFile>
             </suiteXmlFiles>
           </configuration>
         </plugin>

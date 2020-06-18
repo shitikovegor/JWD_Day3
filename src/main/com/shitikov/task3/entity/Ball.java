@@ -3,7 +3,6 @@ package com.shitikov.task3.entity;
 import java.util.StringJoiner;
 
 public class Ball {
-
     private BallColor color;
     private double weight;
     private double radius;
@@ -51,9 +50,8 @@ public class Ball {
 
         Ball other = (Ball) obj;
 
-        if (Double.compare(other.weight, weight) != 0)
-            return false;
-        if (Double.compare(other.radius, radius) != 0)
+        if (Double.compare(other.weight, weight) != 0 &&
+                Double.compare(other.radius, radius) != 0)
             return false;
 
         if (color == null) {

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class Basket {
-
     private ArrayList<Ball> balls;
     private double weightCapacity;
     private double volumeCapacity;
@@ -32,7 +31,7 @@ public class Basket {
         return false;
     }
 
-    public void removeBall(Ball ball) {
+    public void remove(Ball ball) {
         balls.remove(ball);
     }
 
@@ -84,7 +83,6 @@ public class Basket {
         if (ball == null) {
             return false;
         }
-
         return (ball.getWeight() + calcWeightOfBalls() < weightCapacity
                 && ball.calcVolume() + calcVolumeOfBalls() < volumeCapacity
                 && ball.getRadius() < radius);
@@ -99,12 +97,11 @@ public class Basket {
 
         Basket other = (Basket) obj;
 
-        if (Double.compare(other.weightCapacity, weightCapacity) != 0)
+        if (Double.compare(other.weightCapacity, weightCapacity) != 0 &&
+                Double.compare(other.volumeCapacity, volumeCapacity) != 0 &&
+                Double.compare(other.radius, radius) != 0)
             return false;
-        if (Double.compare(other.volumeCapacity, volumeCapacity) != 0)
-            return false;
-        if (Double.compare(other.radius, radius) != 0)
-            return false;
+
         if (balls == null) {
             return other.balls == null;
         } else {

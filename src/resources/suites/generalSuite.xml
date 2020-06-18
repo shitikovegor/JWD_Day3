@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name = "not group test">
+        <classes>
+            <class name="test.shitikov.task3.creator.BallCreatorTest">
+            </class>
+            <class name="test.shitikov.task3.creator.BasketCreatorTest">
+            </class>
+            <class name="test.shitikov.task3.entity.BallTest">
+            </class>
+            <class name="test.shitikov.task3.entity.BasketTest">
+                <methods>
+                    <include name="testAddTrue"/>
+                    <include name="testAddFalse"/>
+                </methods>
+            </class>
+            <class name="test.shitikov.task3.parser.BallBasketParserTest">
+            </class>
+            <class name="test.shitikov.task3.reader.BasketReaderTest">
+            </class>
+            <class name="test.shitikov.task3.service.BasketServiceTest">
+                <methods>
+                    <include name="testPutBallsToBasketException"/>
+                    <include name="testPutBallsToBasketTrue"/>
+                    <include name="testPutBallsToBasketFalse"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

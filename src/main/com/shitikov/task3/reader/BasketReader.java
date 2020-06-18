@@ -1,4 +1,4 @@
-package com.shitikov.task3.read;
+package com.shitikov.task3.reader;
 
 import java.io.IOException;
 import java.io.UncheckedIOException;
@@ -15,6 +15,7 @@ public class BasketReader {
     public List<String> readFile(String fileName) {
         List<String> dataList = new ArrayList<>();
         Path path = Paths.get(fileName);
+
         if (Files.exists(path) && !Files.isDirectory(path) && Files.isReadable(path)) {
             try (Stream<String> dataStream = Files.lines(path)) {
                 dataList = dataStream.collect(Collectors.toList());

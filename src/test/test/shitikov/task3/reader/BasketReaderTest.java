@@ -1,6 +1,6 @@
-package test.shitikov.task3.read;
+package test.shitikov.task3.reader;
 
-import com.shitikov.task3.read.BasketReader;
+import com.shitikov.task3.reader.BasketReader;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

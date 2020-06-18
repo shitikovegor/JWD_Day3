@@ -1,7 +1,7 @@
-package com.shitikov.task3.parse;
+package com.shitikov.task3.parser;
 
-import com.shitikov.task3.create.BallCreator;
-import com.shitikov.task3.create.BasketCreator;
+import com.shitikov.task3.creator.BallCreator;
+import com.shitikov.task3.creator.BasketCreator;
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;
 import com.shitikov.task3.entity.Basket;

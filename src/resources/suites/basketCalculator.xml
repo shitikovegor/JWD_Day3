@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Basket calculating methods Suite">
+    <groups>
+        <run>
+            <include name="calc" />
+        </run>
+    </groups>
+
+    <test name = "BasketCalcTest">
+        <classes>
+            <class name="test.shitikov.task3.entity.BasketTest">
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Color methods Service Suite">
+    <groups>
+        <run>
+            <include name="color" />
+        </run>
+    </groups>
+
+    <test name = "ServiceColorTest">
+        <classes>
+            <class name="test.shitikov.task3.service.BasketServiceTest">
+            </class>
+        </classes>
+    </test>
+</suite>

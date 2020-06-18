@@ -1,6 +1,6 @@
-package test.shitikov.task3.create;
+package test.shitikov.task3.creator;
 
-import com.shitikov.task3.create.BallCreator;
+import com.shitikov.task3.creator.BallCreator;
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;
 import com.shitikov.task3.exception.ProjectException;

@@ -14,7 +14,6 @@ public class BasketService {
         if (basket == null || balls == null) {
             throw new ProjectException("Null parameters.");
         }
-
         for (Ball ball : balls) {
             if (!basket.add(ball)) {
                 return false;
@@ -32,7 +31,7 @@ public class BasketService {
         int numberOfBalls = 0;
 
         for (Ball ball : ballsInBasket) {
-            numberOfBalls += ball.getColor().equals(color) ? 1 : 0;
+            numberOfBalls += (ball.getColor() == color) ? 1 : 0;
         }
         return numberOfBalls;
     }

@@ -1,4 +1,4 @@
-package com.shitikov.task3.create;
+package com.shitikov.task3.creator;
 
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;

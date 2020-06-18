@@ -1,10 +1,10 @@
-package test.shitikov.task3.parse;
+package test.shitikov.task3.parser;
 
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;
 import com.shitikov.task3.entity.Basket;
 import com.shitikov.task3.exception.ProjectException;
-import com.shitikov.task3.parse.BallBasketParser;
+import com.shitikov.task3.parser.BallBasketParser;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
