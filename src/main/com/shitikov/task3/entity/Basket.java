@@ -1,40 +1,43 @@
-package com.shitikov.entity;
-
-import com.shitikov.exception.ProgramException;
+package com.shitikov.task3.entity;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.StringJoiner;
 
 public class Basket {
-
-    private static final double MIN_VALUE = 0;
-    private static final double MAX_VALUE = 1000;
 
     private ArrayList<Ball> balls;
     private double weightCapacity;
     private double volumeCapacity;
     private double radius;
 
-    public Basket() {
-        this.balls = new ArrayList<>();
-        this.weightCapacity = 10.0;
-        this.volumeCapacity = 30.0;
-        this.radius = 10.0;
-    }
-
-    private Basket(double weightCapacity, double volumeCapacity, double radius) {
+    public Basket(double weightCapacity, double volumeCapacity, double radius) {
         this.balls = new ArrayList<>();
         this.weightCapacity = weightCapacity;
         this.volumeCapacity = volumeCapacity;
         this.radius = radius;
     }
 
-    public ArrayList<Ball> getBalls() {
-        return balls;
+    public List<Ball> getBalls() {
+        List<Ball> copy = Collections.unmodifiableList(balls);
+        return copy;
     }
 
-    public void setBalls(ArrayList<Ball> balls) {
-        this.balls = balls;
+    public boolean add(Ball ball) {
+        if (checkBall(ball)) {
+            balls.add(ball);
+            return true;
+        }
+        return false;
+    }
+
+    public void removeBall(Ball ball) {
+        balls.remove(ball);
+    }
+
+    public void clear() {
+        balls.clear();
     }
 
     public double getWeightCapacity() {
@@ -77,14 +80,14 @@ public class Basket {
         return volumeOfBalls;
     }
 
-    public static Basket createBasket(double weightCapacity, double volumeCapacity, double radius) throws ProgramException {
-        if (weightCapacity > MIN_VALUE && weightCapacity < MAX_VALUE
-                && volumeCapacity > MIN_VALUE && volumeCapacity < MAX_VALUE
-                && radius > MIN_VALUE && radius < MAX_VALUE) {
-            return new Basket(weightCapacity, volumeCapacity, radius);
-        } else {
-            throw new ProgramException("Incorrect parameters");
+    private boolean checkBall(Ball ball) {
+        if (ball == null) {
+            return false;
         }
+
+        return (ball.getWeight() + calcWeightOfBalls() < weightCapacity
+                && ball.calcVolume() + calcVolumeOfBalls() < volumeCapacity
+                && ball.getRadius() < radius);
     }
 
     @Override

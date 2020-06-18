@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Users/shitikov_egor/IdeaProjects/JWD/JWD_Day3/src/test">
+        <groups>
+            <run>
+                <include name="calc" />
+                <include name="color" />
+            </run>
+        </groups>
+
+        <classes>
+            <class name="test.shitikov.task3.create.BallCreatorTest">
+                <methods>
+                    <include name="testCreateBallException"/>
+                    <include name="testCreateBall"/>
+                </methods>
+            </class>
+            <class name="test.shitikov.task3.create.BasketCreatorTest">
+                <methods>
+                    <include name="testCreateBasketException"/>
+                    <include name="testCreateBasket"/>
+                </methods>
+            </class>
+            <class name="test.shitikov.task3.entity.BallTest">
+                <methods>
+                    <include name="testCalcVolumePositive"/>
+                    <include name="testCalcVolumeNegative"/>
+                </methods>
+            </class>
+            <class name="test.shitikov.task3.entity.BasketTest">
+                <methods>
+                    <include name="testAddTrue"/>
+                    <include name="testAddFalse"/>
+                </methods>
+            </class>
+            <class name="test.shitikov.task3.parse.BallBasketParserTest">
+                <methods>
+                    <include name="testParseBasketException"/>
+                    <include name="testParseBasketPositive"/>
+                    <include name="testParseBasketNegative"/>
+                    <include name="testParseBallException"/>
+                    <include name="testParseBallPositive"/>
+                    <include name="testParseBallNegative"/>
+                    <include name="testParseBallsListException"/>
+                    <include name="testParseBallsListPositive"/>
+                    <include name="testParseBallsListNegative"/>
+                </methods>
+            </class>
+            <class name="test.shitikov.task3.read.BasketReaderTest">
+                <methods>
+                    <include name="testReadFileException"/>
+                    <include name="testReadFilePositive"/>
+                    <include name="testReadFileNegative"/>
+                </methods>
+            </class>
+            <class name="test.shitikov.task3.service.BasketServiceTest">
+                <methods>
+                    <include name="testPutBallsToBasketException"/>
+                    <include name="testPutBallsToBasketTrue"/>
+                    <include name="testPutBallsToBasketFalse"/>
+                    <include name="testNumberOfBallsByColorException"/>
+                    <include name="testNumberOfBallsByColorPositive"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

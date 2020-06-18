@@ -1,4 +1,4 @@
-package com.shitikov.entity;
+package com.shitikov.task3.entity;
 
 public enum BallColor {
     BLACK ("black"),
@@ -18,14 +18,5 @@ public enum BallColor {
 
     public String getName() {
         return name;
-    }
-
-    public static  BallColor getColorByName(String input) {
-        for (BallColor color : BallColor.values()) {
-            if (color.name.equals(input)) {
-                return color;
-            }
-        }
-        return null;
     }
 }

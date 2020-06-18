@@ -1,19 +1,14 @@
-package com.shitikov.entity;
-
-import com.shitikov.exception.ProgramException;
+package com.shitikov.task3.entity;
 
 import java.util.StringJoiner;
 
 public class Ball {
 
-    private static final double MIN_VALUE = 0;
-    private static final double MAX_VALUE = 1000;
-
     private BallColor color;
     private double weight;
     private double radius;
 
-    private Ball(BallColor color, double weight, double radius) {
+    public Ball(BallColor color, double weight, double radius) {
         this.color = color;
         this.weight = weight;
         this.radius = radius;
@@ -45,15 +40,6 @@ public class Ball {
 
     public double calcVolume() {
         return 4.0/3.0 * Math.PI * Math.pow(radius, 3);
-    }
-
-    public static Ball createBall(BallColor color, double weight, double radius) throws ProgramException {
-        if (weight > MIN_VALUE && weight < MAX_VALUE
-                && radius > MIN_VALUE && radius < MAX_VALUE) {
-            return new Ball(color, weight, radius);
-        } else {
-            throw new ProgramException("Incorrect parameters");
-        }
     }
 
     @Override

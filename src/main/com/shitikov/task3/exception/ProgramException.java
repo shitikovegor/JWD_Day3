@@ -1,4 +1,4 @@
-package com.shitikov.exception;
+package com.shitikov.task3.exception;
 
 public class ProgramException extends Exception {
 
