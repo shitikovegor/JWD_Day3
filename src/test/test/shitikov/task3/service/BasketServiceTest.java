@@ -84,6 +84,8 @@ public class BasketServiceTest {
         basketService.numberOfBallsByColor(basket, color);
     }
 
+    // FIXME: 18.06.2020 лучше разбираться с BeforeGroups или выносить в отдельный класс
+
 //    @BeforeGroups(groups = "color")
 //    public void setBasket() {
 //        basket = new Basket(300, 1000, 6);
