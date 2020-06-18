@@ -3,7 +3,7 @@ package test.shitikov.task3.parse;
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;
 import com.shitikov.task3.entity.Basket;
-import com.shitikov.task3.exception.ProgramException;
+import com.shitikov.task3.exception.ProjectException;
 import com.shitikov.task3.parse.BallBasketParser;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -27,8 +27,8 @@ public class BallBasketParserTest {
         return new Object[]{null, "sd 54 12"};
     }
 
-    @Test(dataProvider = "dataException", expectedExceptions = ProgramException.class)
-    public void testParseBasketException(String input) throws ProgramException {
+    @Test(dataProvider = "dataException", expectedExceptions = ProjectException.class)
+    public void testParseBasketException(String input) throws ProjectException {
         parser.parseBasket(input);
     }
 
@@ -38,7 +38,7 @@ public class BallBasketParserTest {
             Basket actual = parser.parseBasket("500 8000 25");
             Basket expected = new Basket(500, 8000, 25);
             assertEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }
@@ -49,13 +49,13 @@ public class BallBasketParserTest {
             Basket actual = parser.parseBasket("500 8000 25");
             Basket expected = new Basket(300, 5000, 15);
             assertNotEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }
 
-    @Test(dataProvider = "dataException", expectedExceptions = ProgramException.class)
-    public void testParseBallException(String input) throws ProgramException {
+    @Test(dataProvider = "dataException", expectedExceptions = ProjectException.class)
+    public void testParseBallException(String input) throws ProjectException {
         parser.parseBall(input);
     }
 
@@ -65,7 +65,7 @@ public class BallBasketParserTest {
             Ball actual = parser.parseBall("black 150 15");
             Ball expected = new Ball(BallColor.BLACK, 150, 15);
             assertEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }
@@ -76,13 +76,13 @@ public class BallBasketParserTest {
             Ball actual = parser.parseBall("black 150 15");
             Ball expected = new Ball(BallColor.RED, 160, 11);
             assertNotEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }
 
-    @Test(expectedExceptions = ProgramException.class)
-    public void testParseBallsListException() throws ProgramException {
+    @Test(expectedExceptions = ProjectException.class)
+    public void testParseBallsListException() throws ProjectException {
         parser.parseBallsList(null);
     }
 
@@ -102,7 +102,7 @@ public class BallBasketParserTest {
             expected.add(ball2);
 
             assertEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }
@@ -123,7 +123,7 @@ public class BallBasketParserTest {
             expected.add(ball2);
 
             assertNotEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }

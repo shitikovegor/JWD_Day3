@@ -3,7 +3,7 @@ package test.shitikov.task3.service;
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;
 import com.shitikov.task3.entity.Basket;
-import com.shitikov.task3.exception.ProgramException;
+import com.shitikov.task3.exception.ProjectException;
 import com.shitikov.task3.service.BasketService;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
@@ -34,8 +34,8 @@ public class BasketServiceTest {
         return new Object[][]{{null, balls}, {basket, null}};
     }
 
-    @Test(dataProvider = "dataException", expectedExceptions = ProgramException.class)
-    public void testPutBallsToBasketException(Basket basket, ArrayList<Ball> balls) throws ProgramException {
+    @Test(dataProvider = "dataException", expectedExceptions = ProjectException.class)
+    public void testPutBallsToBasketException(Basket basket, ArrayList<Ball> balls) throws ProjectException {
         basketService.putBallsToBasket(basket, balls);
     }
 
@@ -44,7 +44,7 @@ public class BasketServiceTest {
         try {
             assertTrue(basketService.putBallsToBasket(basket, balls), "Test failed as... ");
             basket.clear();
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }
@@ -69,7 +69,7 @@ public class BasketServiceTest {
         try {
             assertFalse(basketService.putBallsToBasket(basket, balls), "Test failed as... ");
             basket.clear();
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred.");
         }
     }
@@ -79,8 +79,8 @@ public class BasketServiceTest {
         return new Object[][]{{null, BallColor.BLACK}, {basket, null}};
     }
 
-    @Test(dataProvider = "dataColorException", expectedExceptions = ProgramException.class)
-    public void testNumberOfBallsByColorException(Basket basket, BallColor color) throws ProgramException {
+    @Test(dataProvider = "dataColorException", expectedExceptions = ProjectException.class)
+    public void testNumberOfBallsByColorException(Basket basket, BallColor color) throws ProjectException {
         basketService.numberOfBallsByColor(basket, color);
     }
 
@@ -101,7 +101,7 @@ public class BasketServiceTest {
 //            int actual = basketService.numberOfBallsByColor(basket, BallColor.BLUE);
 //            int expected = 2;
 //            assertEquals(actual, expected, "Test failed as... ");
-//        } catch (ProgramException e) {
+//        } catch (ProjectException e) {
 //            fail("Exception has occurred.");
 //        }
 //    }
@@ -112,7 +112,7 @@ public class BasketServiceTest {
 //            int actual = basketService.numberOfBallsByColor(basket, BallColor.BLUE);
 //            int expected = 3;
 //            assertNotEquals(actual, expected, "Test failed as... ");
-//        } catch (ProgramException e) {
+//        } catch (ProjectException e) {
 //            fail("Exception has occurred.");
 //        }
 //    }

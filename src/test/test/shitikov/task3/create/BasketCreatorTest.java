@@ -2,7 +2,7 @@ package test.shitikov.task3.create;
 
 import com.shitikov.task3.create.BasketCreator;
 import com.shitikov.task3.entity.Basket;
-import com.shitikov.task3.exception.ProgramException;
+import com.shitikov.task3.exception.ProjectException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -25,8 +25,8 @@ public class BasketCreatorTest {
                 {550, 3500, -56}, {550, 3500, 150}};
     }
 
-    @Test(dataProvider = "data", expectedExceptions = ProgramException.class)
-    public void testCreateBasketException(double weightCapacity, double volumeCapacity, double radius) throws ProgramException {
+    @Test(dataProvider = "data", expectedExceptions = ProjectException.class)
+    public void testCreateBasketException(double weightCapacity, double volumeCapacity, double radius) throws ProjectException {
         basketCreator.createBasket(weightCapacity, volumeCapacity, radius);
     }
 
@@ -36,7 +36,7 @@ public class BasketCreatorTest {
             Basket actual = basketCreator.createBasket(650, 3200, 20);
             Basket expected = new Basket(650, 3200, 20);
             assertEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred");
         }
 

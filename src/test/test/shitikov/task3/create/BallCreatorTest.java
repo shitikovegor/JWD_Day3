@@ -3,7 +3,7 @@ package test.shitikov.task3.create;
 import com.shitikov.task3.create.BallCreator;
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;
-import com.shitikov.task3.exception.ProgramException;
+import com.shitikov.task3.exception.ProjectException;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -26,8 +26,8 @@ public class BallCreatorTest {
                 {BallColor.BLACK, 25, 130}};
     }
 
-    @Test(dataProvider = "data", expectedExceptions = ProgramException.class)
-    public void testCreateBallException(BallColor color, double weight, double radius) throws ProgramException {
+    @Test(dataProvider = "data", expectedExceptions = ProjectException.class)
+    public void testCreateBallException(BallColor color, double weight, double radius) throws ProjectException {
         ballCreator.createBall(color, weight, radius);
     }
 
@@ -37,7 +37,7 @@ public class BallCreatorTest {
             Ball actual = ballCreator.createBall(BallColor.BLACK, 35, 2.5);
             Ball expected = new Ball(BallColor.BLACK, 35, 2.5);
             assertEquals(actual, expected, "Test failed as... ");
-        } catch (ProgramException e) {
+        } catch (ProjectException e) {
             fail("Exception has occurred");
         }
     }

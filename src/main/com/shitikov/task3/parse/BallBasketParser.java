@@ -5,7 +5,7 @@ import com.shitikov.task3.create.BasketCreator;
 import com.shitikov.task3.entity.Ball;
 import com.shitikov.task3.entity.BallColor;
 import com.shitikov.task3.entity.Basket;
-import com.shitikov.task3.exception.ProgramException;
+import com.shitikov.task3.exception.ProjectException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +15,9 @@ public class BallBasketParser {
     private static final String BALL_REGEX = "\\w+\\s+\\d+\\.?\\d*\\s+\\d+\\.?\\d*";
     private static final String BASKET_REGEX = "\\d+\\.?\\d*\\s+\\d+\\.?\\d*\\s+\\d+\\.?\\d*";
 
-    public Basket parseBasket(String input) throws ProgramException {
+    public Basket parseBasket(String input) throws ProjectException {
         if (input == null) {
-            throw new ProgramException("Parameter is null.");
+            throw new ProjectException("Parameter is null.");
         }
         BasketCreator creator = new BasketCreator();
         String[] parametersOfBasket = input.split("\\s+");
@@ -36,9 +36,9 @@ public class BallBasketParser {
         return basket;
     }
 
-    public Ball parseBall(String input) throws ProgramException {
+    public Ball parseBall(String input) throws ProjectException {
         if (input == null) {
-            throw new ProgramException("Parameter is null.");
+            throw new ProjectException("Parameter is null.");
         }
         BallCreator creator = new BallCreator();
         String[] parametersOfBall = input.split("\\s+");
@@ -57,17 +57,17 @@ public class BallBasketParser {
         return ball;
     }
 
-    public ArrayList<Ball> parseBallsList(List<String> stringList) throws ProgramException {
+    public ArrayList<Ball> parseBallsList(List<String> stringList) throws ProjectException {
 
         if (stringList == null) {
-            throw new ProgramException("Parameter is null.");
+            throw new ProjectException("Parameter is null.");
         }
         ArrayList<Ball> balls = new ArrayList<>();
 
         for (String s : stringList) {
             try {
                 balls.add(parseBall(s));
-            } catch (ProgramException e) {
+            } catch (ProjectException e) {
                 Logger log = Logger.getLogger(BallBasketParser.class.getName());
                 log.info(e.getMessage());
             }
